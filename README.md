@@ -35,6 +35,7 @@ The architecture is structured as follows:
 - Document the architecture and best practices for maintainability and scalability.
 
 ## Project Structure
+```bash
 CoreSentiment/
 ├── dags/                  # Airflow DAGs and include scripts
 │   ├── wikipedia_pageviews_hourly_dag.py  # Main DAG
@@ -52,8 +53,8 @@ CoreSentiment/
 ├── scripts/               # SQL scripts
 │   ├── analysis.sql       # SQL query for pageview analysis
 │   └── init_db.sql        # Database initialization script
-└── README.md              # This file
-
+└── README.md              # Project Documentation
+```
 
 ## Key Best Practices Used
 - **Airflow Parameters**: It enables you to insert parameters `year`, `month`, `day` and `hour` in case you want to run the dag for a different date and time.

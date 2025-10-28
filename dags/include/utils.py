@@ -23,7 +23,7 @@ def send_email_alert(subject: str, body: str, html_body: str = None, to_addr: st
         return
 
     smtp_host = os.getenv("SMTP_HOST")
-    smtp_port = int(os.getenv("SMTP_PORT", 465))  # 465 for SSL
+    smtp_port = int(os.getenv("SMTP_PORT", 465))  
     smtp_user = os.getenv("SMTP_USER")
     smtp_pass = os.getenv("SMTP_PASSWORD")
 

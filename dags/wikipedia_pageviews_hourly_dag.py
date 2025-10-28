@@ -24,10 +24,10 @@ with DAG(
     default_args=DEFAULT_ARGS,
     catchup=False,
     params={
-        "year": os.getenv("WIKI_YEAR", 2025),
-        "month": os.getenv("WIKI_MONTH", 10),
-        "day": os.getenv("WIKI_DAY", 10),
-        "hour": os.getenv("WIKI_HOUR", 4),
+        "year": os.getenv("WIKI_YEAR"),
+        "month": os.getenv("WIKI_MONTH"),
+        "day": os.getenv("WIKI_DAY"),
+        "hour": os.getenv("WIKI_HOUR"),
     },
     tags=["coresentiment"],
 ) as dag:

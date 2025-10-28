@@ -7,7 +7,7 @@ The CoreSentiment project is a data engineering capstone designed to build a sca
 ![Project Architecture](img/WikiMedia_Architecture.png)
 
 The architecture is structured as follows:
-- **Data Source**: Wikimedia Foundation provides hourly pageview data in gzip format (e.g., `pageviews-20251010-040000.gz`) via a web URL[here](https://dumps.wikimedia.org/other/pageviews/).
+- **Data Source**: Wikimedia Foundation provides hourly pageview data in gzip format (e.g., `pageviews-20251010-040000.gz`) via a web URL [here](https://dumps.wikimedia.org/other/pageviews/).
 - **Orchestration**: Apache Airflow, running in a Dockerized environment with CeleryExecutor, manages the workflow.
 - **Container & Network**: Docker containers handle extraction, transformation, and loading (ETL), connected via a bridge network.
 - **Extraction**: Python scripts download and extract pageview data for a specified hour, filtering for the five target companies.
@@ -148,19 +148,19 @@ docker compose up airflow-init
 ```
 6. Run the Pipeline:
 ```bash
-docker-compose up -d
+docker-compose up -d --build
 ```
 This starts all the services in your `docker-compose.yaml` file and your airflow should be accessible via `http://localhost:8080/` where you can trigger your DAG.
 
 ## Troubleshooting
 - **Log Retrieval Failure**: If logs show "No host supplied" (e.g., `http://:8793/log/...`), set `AIRFLOW__CORE__HOSTNAME_CALLABLE=airflow.utils.net.get_host_ip_address` in `.env` and restart services.
 - **Download Errors**: Verify internet connectivity or increase `max_retries` in `download.py` if Wikimedia data is delayed.
-- **Database Connection Issues**: Ensure `SUPABASE_HOST` and credentials in `.env` are correct; test with `psql` manually. This video could help on how to get your SUPABASE credentials[here](https://www.youtube.com/watch?v=rcopl1rYn70).
+- **Database Connection Issues**: Ensure `SUPABASE_HOST` and credentials in `.env` are correct; test with `psql` manually. This video could help on how to get your SUPABASE credentials [here](https://www.youtube.com/watch?v=rcopl1rYn70).
 - **Task Failures**: Check Airflow UI logs or worker logs for stack traces; adjust resource limits in `docker-compose.yaml` if needed.
-- **Notification Failures**: Validate `SLACK_WEBHOOK_URL` or Gmail SMTP credentials in `.env`. This article could help you on how to get your slack webhooks[here](https://www.maius.com/post/how-to-get-a-slack-webhook-url)
+- **Notification Failures**: Validate `SLACK_WEBHOOK_URL` or Gmail SMTP credentials in `.env`. This article could help you on how to get your slack webhooks [here](https://www.maius.com/post/how-to-get-a-slack-webhook-url)
 
 ## Data Source
-- **Source**: Wikimedia Foundation[here](https://dumps.wikimedia.org/other/pageviews/).
+- **Source**: Wikimedia Foundation [here](https://dumps.wikimedia.org/other/pageviews/).
 - **Format**: Gzip-compressed text files (e.g., `pageviews-20251010-040000.gz`), ~50MB compressed, 200-250MB unzipped.
 - **Structure**: Each line contains `domain`, `page_title`, `view_count`, and `response_size`, separated by whitespace.
 - **Availability**: Data is released ~45 minutes post-hour, with occasional delays up to 3-4 hours.

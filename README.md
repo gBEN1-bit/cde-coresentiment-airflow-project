@@ -68,11 +68,14 @@ CoreSentiment/
 - **Enabling AIRFLOW__CORE__FERNET_KEY**: It ensures that data encrypted using it cannot be manipulated or read without the key. This makes it a secure way to handle sensitive information.
 
 ## Monitoring and Alert
-- **Email Alert**: 
-![Email Alert](img/email_alert.png)
+- **Email Alert**:
 
-- **Slack Alert**: 
-![Slack Alert](img/slack_alert.png)
+  ![Email Alert](img/email_alert.png)
+
+- **Slack Alert**:
+
+  ![Slack Alert](img/slack_alert.png)
+
 
 ## Airflow
 - **DAGs**: 
